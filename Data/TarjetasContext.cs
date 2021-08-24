@@ -40,7 +40,6 @@ namespace TarjetasApp.Data
             modelBuilder.Entity<Persona>().HasData(new Persona()
             {
                 IdPersona = 1,
-                IdTarjeta = 1,
                 Nombre = "Ivan",
                 Apellido = "Cheresky",
                 Direccion = "Calle 123",

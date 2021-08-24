@@ -25,14 +25,14 @@ namespace TarjetasApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Usuario>>> GetCliente()
         {
-            return await _context.Cliente.ToListAsync();
+            return await _context.Usuario.ToListAsync();
         }
 
         // GET: api/Usuarios/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Usuario>> GetUsuario(int id)
         {
-            var usuario = await _context.Cliente.FindAsync(id);
+            var usuario = await _context.Usuario.FindAsync(id);
 
             if (usuario == null)
             {
@@ -78,7 +78,7 @@ namespace TarjetasApp.Controllers
         [HttpPost]
         public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
         {
-            _context.Cliente.Add(usuario);
+            _context.Usuario.Add(usuario);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetUsuario", new { id = usuario.IdUsuario }, usuario);
@@ -88,13 +88,13 @@ namespace TarjetasApp.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteUsuario(int id)
         {
-            var usuario = await _context.Cliente.FindAsync(id);
+            var usuario = await _context.Usuario.FindAsync(id);
             if (usuario == null)
             {
                 return NotFound();
             }
 
-            _context.Cliente.Remove(usuario);
+            _context.Usuario.Remove(usuario);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -102,7 +102,7 @@ namespace TarjetasApp.Controllers
 
         private bool UsuarioExists(int id)
         {
-            return _context.Cliente.Any(e => e.IdUsuario == id);
+            return _context.Usuario.Any(e => e.IdUsuario == id);
         }
     }
 }

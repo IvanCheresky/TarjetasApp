@@ -21,9 +21,6 @@ namespace TarjetasApp.Models
         [MaxLength(200)]
         [Required]
         public string Direccion { get; set; }
-        [ForeignKey("Tarjeta")]
-        public int IdTarjeta { get; set; }
-        [ForeignKey("IdTarjeta")]
         public virtual Tarjeta Tarjeta { get; set; }
 
         [MaxLength(50)]

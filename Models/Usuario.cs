@@ -19,6 +19,7 @@ namespace TarjetasApp.Models
         [Required]
         public string NombreUsuario { get; set; }
         [MaxLength(50)]
+        [DataType(DataType.Password)]
         [Required]
         public string Password { get; set; }
     }

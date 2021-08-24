@@ -9,7 +9,7 @@ namespace TarjetasApp.Helpers
 {
     public class TasaCalculator
     {
-        public double CalcularTasa(Marca marca, DateTime date)
+        public static double CalcularTasa(Marca marca, DateTime date)
         {
             switch (marca)
             {
