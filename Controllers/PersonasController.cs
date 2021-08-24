@@ -12,41 +12,47 @@ namespace TarjetasApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UsuariosController : ControllerBase
+    public class PersonasController : ControllerBase
     {
         private readonly TarjetasContext _context;
 
-        public UsuariosController(TarjetasContext context)
+        public PersonasController(TarjetasContext context)
         {
             _context = context;
         }
 
-
-        // GET: api/Usuarios/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<Usuario>> GetUsuario(int id)
+        // GET: api/Personas
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Persona>>> GetPersona()
         {
-            var usuario = await _context.Usuario.FindAsync(id);
+            return await _context.Persona.ToListAsync();
+        }
 
-            if (usuario == null)
+        // GET: api/Personas/5
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Persona>> GetPersona(int id)
+        {
+            var persona = await _context.Persona.FindAsync(id);
+
+            if (persona == null)
             {
                 return NotFound();
             }
 
-            return usuario;
+            return persona;
         }
 
-        // PUT: api/Usuarios/5
+        // PUT: api/Personas/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUsuario(int id, Usuario usuario)
+        public async Task<IActionResult> PutPersona(int id, Persona persona)
         {
-            if (id != usuario.IdUsuario)
+            if (id != persona.IdPersona)
             {
                 return BadRequest();
             }
 
-            _context.Entry(usuario).State = EntityState.Modified;
+            _context.Entry(persona).State = EntityState.Modified;
 
             try
             {
@@ -54,7 +60,7 @@ namespace TarjetasApp.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UsuarioExists(id))
+                if (!PersonaExists(id))
                 {
                     return NotFound();
                 }
@@ -67,36 +73,36 @@ namespace TarjetasApp.Controllers
             return NoContent();
         }
 
-        // POST: api/Usuarios
+        // POST: api/Personas
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        public async Task<ActionResult<Usuario>> PostUsuario(Usuario usuario)
+        public async Task<ActionResult<Persona>> PostPersona(Persona persona)
         {
-            _context.Usuario.Add(usuario);
+            _context.Persona.Add(persona);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetUsuario", new { id = usuario.IdUsuario }, usuario);
+            return CreatedAtAction("GetPersona", new { id = persona.IdPersona }, persona);
         }
 
-        // DELETE: api/Usuarios/5
+        // DELETE: api/Personas/5
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUsuario(int id)
+        public async Task<IActionResult> DeletePersona(int id)
         {
-            var usuario = await _context.Usuario.FindAsync(id);
-            if (usuario == null)
+            var persona = await _context.Persona.FindAsync(id);
+            if (persona == null)
             {
                 return NotFound();
             }
 
-            _context.Usuario.Remove(usuario);
+            _context.Persona.Remove(persona);
             await _context.SaveChangesAsync();
 
             return NoContent();
         }
 
-        private bool UsuarioExists(int id)
+        private bool PersonaExists(int id)
         {
-            return _context.Usuario.Any(e => e.IdUsuario == id);
+            return _context.Persona.Any(e => e.IdPersona == id);
         }
     }
 }

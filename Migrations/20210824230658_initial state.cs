@@ -1,8 +1,9 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace TarjetasApp.Migrations
 {
-    public partial class initialsetup : Migration
+    public partial class initialstate : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -44,7 +45,12 @@ namespace TarjetasApp.Migrations
                     IdTarjeta = table.Column<int>(type: "int", nullable: false),
                     Nombre = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
                     Numero = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    IdPersona = table.Column<int>(type: "int", maxLength: 50, nullable: false)
+                    Titular = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
+                    IdPersona = table.Column<int>(type: "int", maxLength: 50, nullable: false),
+                    Limite = table.Column<long>(type: "bigint", nullable: false),
+                    Tasa = table.Column<double>(type: "float", nullable: false),
+                    Vencimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Marca = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -69,8 +75,8 @@ namespace TarjetasApp.Migrations
 
             migrationBuilder.InsertData(
                 table: "Tarjeta",
-                columns: new[] { "IdTarjeta", "IdPersona", "Nombre", "Numero" },
-                values: new object[] { 1, 1, "Ivan", "00000000" });
+                columns: new[] { "IdTarjeta", "IdPersona", "Limite", "Marca", "Nombre", "Numero", "Tasa", "Titular", "Vencimiento" },
+                values: new object[] { 1, 1, 100000L, 2, "Ivan", "00000000", 0.80000000000000004, "Ivan", new DateTime(2021, 8, 24, 20, 6, 57, 721, DateTimeKind.Local).AddTicks(3744) });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

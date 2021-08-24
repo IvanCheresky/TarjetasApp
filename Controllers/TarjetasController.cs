@@ -21,13 +21,6 @@ namespace TarjetasApp.Controllers
             _context = context;
         }
 
-        // GET: api/Tarjetas
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<Tarjeta>>> GetTarjetas()
-        {
-            return await _context.Tarjeta.ToListAsync();
-        }
-
         // GET: api/Tarjetas/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Tarjeta>> GetTarjeta(int id)
@@ -104,5 +97,13 @@ namespace TarjetasApp.Controllers
         {
             return _context.Tarjeta.Any(e => e.IdTarjeta == id);
         }
+
+        //todas las tarjetas que una persona ha solicitado
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Tarjeta>>> GetTarjetas(int IdPersona)
+        {
+            return await _context.Tarjeta.Where(x => x.IdPersona == IdPersona).ToListAsync();
+        }
+
     }
 }

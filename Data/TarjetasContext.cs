@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using TarjetasApp.Helpers;
 using TarjetasApp.Models;
 
 namespace TarjetasApp.Data
@@ -34,7 +35,12 @@ namespace TarjetasApp.Data
                 IdTarjeta = 1,
                 IdPersona = 1,
                 Nombre = "Ivan",
-                Numero = "00000000"
+                Numero = "00000000",
+                Limite = 100000,
+                Marca = Marca.PERE,
+                Tasa = TasaCalculator.CalcularTasa(Marca.PERE, DateTime.Now),
+                Titular = "Ivan",
+                Vencimiento = DateTime.Now
             });
 
             modelBuilder.Entity<Persona>().HasData(new Persona()

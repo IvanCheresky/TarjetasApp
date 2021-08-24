@@ -35,7 +35,7 @@ namespace TarjetasApp
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddMicrosoftIdentityWebApi(Configuration.GetSection("AzureAd"));
 
-            var connection = @"Server=localhost,1401;Database=master;User=sa;Password=pass;";
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=TarjetasApp;Trusted_Connection=True;MultipleActiveResultSets=true";
 
             services.AddDbContext<TarjetasContext>(
                 options => options.UseSqlServer(connection));
