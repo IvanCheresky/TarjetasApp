@@ -7,10 +7,10 @@ using TarjetasApp.Models;
 
 namespace TarjetasApp.Helpers
 {
-    public class TasaCalculator
+    public class TasaCalculator : ITasaCalculator
     {
         //Cada marca tiene un modo de calcular una tasa por el servicio
-        public static double CalcularTasaPorcentual(Marca marca, DateTime date)
+        public double CalcularTasaPorcentual(Marca marca, DateTime date)
         {
             switch (marca)
             {
@@ -25,7 +25,7 @@ namespace TarjetasApp.Helpers
         }
 
         //Obtener por medio de un método la tasa de una operación informando marca e importe
-        public static double CalcularTasaNominal(Marca marca, DateTime date, double importe)
+        public double CalcularTasaNominal(Marca marca, DateTime date, double importe)
         {
             return CalcularTasaPorcentual(marca, date) * importe;
         }

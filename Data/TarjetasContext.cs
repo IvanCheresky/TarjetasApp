@@ -10,9 +10,12 @@ namespace TarjetasApp.Data
 {
     public class TarjetasContext : DbContext
     {
-        public TarjetasContext(DbContextOptions<TarjetasContext> options)
+        private ITasaCalculator tasaCalculator;
+
+        public TarjetasContext(DbContextOptions<TarjetasContext> options, ITasaCalculator tasaCalculator)
             : base(options)
         {
+            this.tasaCalculator = tasaCalculator;
         }
 
         public DbSet<Usuario> Usuario { get; set; }
@@ -38,7 +41,7 @@ namespace TarjetasApp.Data
                 Numero = "00000000",
                 Limite = 100000,
                 Marca = Marca.PERE,
-                Tasa = TasaCalculator.CalcularTasaPorcentual(Marca.PERE, DateTime.Now),
+                Tasa = tasaCalculator.CalcularTasaPorcentual(Marca.PERE, DateTime.Now),
                 Titular = "Ivan",
                 Vencimiento = DateTime.Now
             });
