@@ -10,7 +10,6 @@ namespace TarjetasApp.Models
     public class Tarjeta
     {
         [Key]
-        [ForeignKey("Persona")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int IdTarjeta { get; set; }
         [MaxLength(50)]
@@ -22,9 +21,9 @@ namespace TarjetasApp.Models
         [MaxLength(50)]
         [Required]
         public string Titular { get; set; }
-        [MaxLength(50)]
-        [Required]
+        [ForeignKey("Persona")]
         public int IdPersona { get; set; }
+        [ForeignKey("IdPersona")]
         public virtual Persona Persona { get; set; }
         [Required]
         public long Limite { get; set; }
@@ -36,6 +35,8 @@ namespace TarjetasApp.Models
         public Marca Marca { get; set; }
 
     }
+
+    //existen tres marcas de tarjeta de crédito, a saber: “SQUA”, “SCO”, “PERE”
     public enum Marca
     {
         SQUA,

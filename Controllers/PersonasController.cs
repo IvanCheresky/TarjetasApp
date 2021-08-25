@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -10,6 +11,7 @@ using TarjetasApp.Models;
 
 namespace TarjetasApp.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class PersonasController : ControllerBase
@@ -23,7 +25,7 @@ namespace TarjetasApp.Controllers
 
         // GET: api/Personas
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Persona>>> GetPersona()
+        public async Task<ActionResult<IEnumerable<Persona>>> GetPersonas()
         {
             return await _context.Persona.ToListAsync();
         }

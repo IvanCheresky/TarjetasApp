@@ -21,7 +21,7 @@ namespace TarjetasApp.Models
         [MaxLength(200)]
         [Required]
         public string Direccion { get; set; }
-        public virtual Tarjeta Tarjeta { get; set; }
+        public virtual ICollection<Tarjeta> Tarjetas { get; set; }
 
         [MaxLength(50)]
         [Required]

@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TarjetasApp.Data;
+using TarjetasApp.Helpers;
 using TarjetasApp.Models;
 
 namespace TarjetasApp.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class TarjetasController : ControllerBase
@@ -21,7 +24,7 @@ namespace TarjetasApp.Controllers
             _context = context;
         }
 
-        // GET: api/Tarjetas/5
+        // Invocar un método que devuelva toda la información de una tarjeta
         [HttpGet("{id}")]
         public async Task<ActionResult<Tarjeta>> GetTarjeta(int id)
         {
@@ -99,10 +102,32 @@ namespace TarjetasApp.Controllers
         }
 
         //todas las tarjetas que una persona ha solicitado
-        [HttpGet]
+        [HttpGet("DePersona/{IdPersona}")]
         public async Task<ActionResult<IEnumerable<Tarjeta>>> GetTarjetas(int IdPersona)
         {
             return await _context.Tarjeta.Where(x => x.IdPersona == IdPersona).ToListAsync();
+        }
+
+        //todas las tarjetas
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Tarjeta>>> GetTarjetas()
+        {
+            return await _context.Tarjeta.ToListAsync();
+        }
+
+        //Informar si una operación es valida
+        [HttpGet("OperacionValida/{amount}")]
+        public ActionResult<bool> TransactionIsValid(double amount)
+        {
+            return TransactionHelpers.IsTransactionValid(amount);
+        }
+
+        //Informar si una tarjeta es válida para opera
+        [HttpGet("CardIsValid/{id}")]
+        public async Task<ActionResult<bool>> CardIsValid(int id)
+        {
+            var tarjeta = await _context.Tarjeta.FindAsync(id);
+            return TarjetaHelpers.IsTarjetaValid(tarjeta);
         }
 
     }

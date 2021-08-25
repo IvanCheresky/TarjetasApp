@@ -38,7 +38,7 @@ namespace TarjetasApp.Data
                 Numero = "00000000",
                 Limite = 100000,
                 Marca = Marca.PERE,
-                Tasa = TasaCalculator.CalcularTasa(Marca.PERE, DateTime.Now),
+                Tasa = TasaCalculator.CalcularTasaPorcentual(Marca.PERE, DateTime.Now),
                 Titular = "Ivan",
                 Vencimiento = DateTime.Now
             });
