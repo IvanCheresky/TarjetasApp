@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4O/hVj0k+1psKqyKvUT/nh82jmmnROh2C1uVgNx7iKk+yd/hEA1oHQ0pXF07XN/0pHytS44uQBB4WAIXXAAZ5g==",
+  "dgSpecHash": "nc6TOKdaqes7Q7XVE56h/wuFD10FtjZJPZM2ef51xOYXSnZz1kNf0LkVVePxsIYZgTrT2M5yhGcSS95iUga7Fg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp.csproj",
+  "projectFilePath": "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp\\TarjetasApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\chech\\.nuget\\packages\\azure.core\\1.4.1\\azure.core.1.4.1.nupkg.sha512",
     "C:\\Users\\chech\\.nuget\\packages\\azure.identity\\1.2.3\\azure.identity.1.2.3.nupkg.sha512",

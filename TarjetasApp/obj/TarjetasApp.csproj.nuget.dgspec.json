@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp.csproj": {}
+    "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp\\TarjetasApp.csproj": {}
   },
   "projects": {
-    "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp.csproj": {
+    "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp\\TarjetasApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp.csproj",
+        "projectUniqueName": "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp\\TarjetasApp.csproj",
         "projectName": "TarjetasApp",
-        "projectPath": "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp.csproj",
+        "projectPath": "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp\\TarjetasApp.csproj",
         "packagesPath": "C:\\Users\\chech\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\chech\\source\\repos\\TarjetasApp\\obj\\",
+        "outputPath": "C:\\Users\\chech\\source\\repos\\TarjetasApp\\TarjetasApp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",

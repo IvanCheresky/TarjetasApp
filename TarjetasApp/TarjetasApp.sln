@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.31321.278
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TarjetasApp", "TarjetasApp.csproj", "{38B7A290-B99C-4D28-B2ED-B3CDCE3C5AFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TarjetasApp.UnitTests", "..\TarjetasApp.UnitTests\TarjetasApp.UnitTests.csproj", "{7C19E0C4-235D-4CC9-B906-E7D45C417498}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TarjetasApp.UnitTest", "..\TarjetasApp.UnitTest\TarjetasApp.UnitTest.csproj", "{5A2654C0-8F98-467F-BDDB-5D19FE01D38B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{38B7A290-B99C-4D28-B2ED-B3CDCE3C5AFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38B7A290-B99C-4D28-B2ED-B3CDCE3C5AFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38B7A290-B99C-4D28-B2ED-B3CDCE3C5AFD}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7C19E0C4-235D-4CC9-B906-E7D45C417498}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7C19E0C4-235D-4CC9-B906-E7D45C417498}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7C19E0C4-235D-4CC9-B906-E7D45C417498}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7C19E0C4-235D-4CC9-B906-E7D45C417498}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A2654C0-8F98-467F-BDDB-5D19FE01D38B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A2654C0-8F98-467F-BDDB-5D19FE01D38B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A2654C0-8F98-467F-BDDB-5D19FE01D38B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A2654C0-8F98-467F-BDDB-5D19FE01D38B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
